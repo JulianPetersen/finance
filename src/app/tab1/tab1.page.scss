@@ -1,0 +1,138 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+ion-content{
+    --background: rgb(240, 240, 240);
+    .fabButton{
+        margin-bottom: 70px;
+    }
+
+    .contenedor{
+        
+        ion-row{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            .balance{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                ion-card{
+                    width: 80%;
+                    height: 100px;
+                    border-radius: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    .resumen{
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        margin-top:15px;
+                        .ingresos{
+                            width: 50%;
+                            display: flex;
+                            justify-content: center;
+                        }
+                        p{
+                            margin: 3px;
+                        }
+                        .ingreso{
+                            color:green;
+                        }
+                        .gasto{
+                            color:red
+                        }
+                    }
+    
+                }
+            }
+
+        }
+        .descMovimientos{
+            width: 80%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin:5px;
+            ion-icon{
+                font-size: 25px;
+                color:red;  
+            }
+            ion-text{
+                font-weight: bold;
+            }
+        }
+
+        .descIngresos{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ingresosCard{
+            width: 80%;
+            height: 40px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:black
+        }
+
+    }
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    border-bottom-left-radius:50px ;
+    border-bottom-right-radius: 50px;
+    background-color: rgb(245, 201, 56);
+    justify-content: center;
+    .infoBilletera{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        .monto{
+            font-size: 40px;
+            font-weight: bold;
+            margin: 0;
+        }
+        p{
+            font-weight: bold;
+        }
+    }
+}
+
+
+.calendario{
+    margin-top:30px;
+    border-radius: 50px;
+    width: 80%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    ion-icon{
+        padding: 10px;
+        color: gray;
+        font-size: 30px;
+    }
+    p{
+        font-family: 'Poppins', sans-serif;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+   
+}
+
+.gray{
+    background-color: rgb(192, 192, 192);
+}

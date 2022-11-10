@@ -1,17 +1,92 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<div class="header">
+  <div class="infoBilletera">
+    <p class="monto">${{billetera.monto}}</p>
+    <p>Tu dinero en movimiento</p>
+  </div>
+</div>
+  
+
+<div class="contenedor">
+  <ion-grid>
+
+    <ion-row>
+      <div class="calendario">
+        <ion-button fill="clear" id="open-date-input-5">
+          <ion-icon icon="calendar"></ion-icon>
+        </ion-button>
+        <p>{{this.formatedMoth}}</p>
+        <ion-popover trigger="open-date-input-5" show-backdrop="false">
+          <ng-template>
+            <ion-datetime
+              #popoverDatetime5
+              presentation="date"
+              (ionChange)="selectedMonth(popoverDatetime5.value)"
+            ></ion-datetime>
+          </ng-template>
+        </ion-popover>
+      </div>
+    </ion-row>
+    <ion-row>
+      <div class="balance">
+        <ion-card>
+          <div class="resumen">
+           <div class="ingresos">
+            <p class="ingreso">Ingresos</p>
+            <p>$ {{totalIngresos}}</p>
+           </div>
+           <div class="ingresos">
+            <p class="gasto">Egresos</p>
+            <p>$ {{totalEgresos}}</p>
+           </div>
+          </div>
+          <div class="resumen">
+            <div class="ingresos">
+             <p >Balance</p>
+             <p>$ {{totalIngresos-totalEgresos}}</p>
+            </div>
+           </div>
+        </ion-card>
+      </div>
+    </ion-row>
+    <ion-row>
+      <ion-card class="ingresosCard" [ngClass]="{'gray':selectedIngresos == true}" (click)="mostrarIngresos()">Ingresos</ion-card>
+      <div class="descIngresos" *ngIf="selectedIngresos">
+        <ion-card *ngFor="let ingreso of listIngresos" class="descMovimientos">
+          <ion-text color="success">{{ingreso.categoria}}</ion-text>
+          <p>${{ingreso.montoIngreso}}</p>
+          <ion-icon name="trash" ></ion-icon>
+        </ion-card>
+      </div>
+    </ion-row>
+    <ion-row>
+      <ion-card class="ingresosCard" [ngClass]="{'gray':selectedEgresos == true}" (click)="mostrarEgresos()">Egresos</ion-card>
+      <div class="descIngresos" *ngIf="selectedEgresos">
+        <ion-card *ngFor="let egreso of listEgresos" class="descMovimientos">
+          <ion-text color="danger" >{{egreso.categoria}}</ion-text>
+          <p>${{egreso.montoEgreso}}</p>
+          <ion-icon name="trash" ></ion-icon>
+        </ion-card>
+      </div>
+    </ion-row>
+  </ion-grid>
+</div>
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button >
+        <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+        <ion-fab-button (click)="openAddSpent()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="openAddGasto()">
+        <ion-icon name="remove"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>
+
+
