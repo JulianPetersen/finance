@@ -18,9 +18,7 @@ export class Tab1Page {
               public init:InitSistemService,
               public popover:PopoverController,
               public loader:LoadingController) {
-                  this.init.iniciarBilletera();
-                  this.init.iniciarCategoriasEgreso();
-                  this.init.iniciarCategoriasIngreso()
+
   }
 
 
@@ -53,6 +51,7 @@ export class Tab1Page {
     modal.onDidDismiss().then((data:any)=> {
       this.billetera = JSON.parse(localStorage.getItem('billetera'))
       this.calcularIngresosMes(this.mesActual)
+      this.calcularEgresosMes(this.mesActual)
     })
     modal.present();
   }
@@ -65,6 +64,7 @@ export class Tab1Page {
     modal.onDidDismiss().then((data:any)=> {
       this.billetera = JSON.parse(localStorage.getItem('billetera'))
       this.calcularIngresosMes(this.mesActual)
+      this.calcularEgresosMes(this.mesActual)
     })
     modal.present();
   }

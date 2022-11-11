@@ -55,10 +55,14 @@
     <ion-row>
       <ion-card class="ingresosCard" [ngClass]="{'gray':selectedIngresos == true}" (click)="mostrarIngresos()">Ingresos</ion-card>
       <div class="descIngresos" *ngIf="selectedIngresos">
-        <ion-card *ngFor="let ingreso of listIngresos" class="descMovimientos">
+        <ion-card *ngFor="let ingreso of listIngresos; let i = index" class="descMovimientos">
           <ion-text color="success">{{ingreso.categoria}}</ion-text>
           <p>${{ingreso.montoIngreso}}</p>
-          <ion-icon name="trash" ></ion-icon>
+          <ion-buttons> 
+            <ion-button (click)="eliminarIngreso(ingreso.id)">
+              <ion-icon slot="icon-only" name="trash" ></ion-icon>
+            </ion-button>
+          </ion-buttons>
         </ion-card>
       </div>
     </ion-row>
